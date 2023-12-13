@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       backgroundColor: {
-        main: "rgb(0, 0, 0)"
+        main: "rgb(0, 0, 0)",
+        card: "rgb(30, 30, 30)"
       }
     },
   },
