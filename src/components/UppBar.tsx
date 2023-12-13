@@ -14,7 +14,7 @@ export default function UpBar() {
     }
 
     return (
-        <div className="w-screen h-14 fixed top-0 right-0 flex justify-between items-center px-5 text-slate-200 lg:px-10">
+        <div className="w-screen h-14 fixed top-0 right-0 flex justify-between items-center px-5 text-slate-200 lg:px-10 bg-main">
             <div id="self-company">
                 <p className="font-bold">Kotekpsotek</p>
             </div>

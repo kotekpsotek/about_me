@@ -43,11 +43,18 @@
     @apply grid-rows-1 overflow-hidden;
     grid-auto-rows: 0px;
   }
+
+  .btn-chtch-stck {
+    @apply w-fit p-2 capitalize bg-gradient-to-tr rounded font-bold from-blue-500 to-indigo-800 bg-clip-text text-transparent;
+    border: solid 1px;
+    border-image: linear-gradient(to right top, #2563eb, #4338ca) 1;
+    border-radius: 50px;
+  }
 }
 
 @layer components {
   .card {
-    @apply h-fit p-3 rounded-md bg-card text-slate-50 flex flex-col;
+    @apply h-fit p-3 rounded bg-transparent border border-teal-100 text-slate-50 flex flex-col;
   }
 
   .card > .desc {

@@ -39,7 +39,7 @@ export default function Main() {
     
     return (
         <>
-            <div id="all"  className="flex flex-col gap-y-5">
+            <div id="all"  className="flex flex-col gap-y-14">
                 <div id="wr" className="w-screen h-screen flex justify-center items-center px-4 gap-x-8 lg:gap-x-14">
                     <div id="txt" className="text-white">
                         <p className="text-xs uppercase text-slate-500">Welcome in my world</p>
@@ -75,6 +75,13 @@ export default function Main() {
                     </div>
                     <img src={imgProfile} alt="" className="hidden md:block h-3/6 w-3/6 lg:w-fit object-contain"/>
                 </div>
+                <div id="about-me" className="text-white border p-5 flex flex-col gap-y-3">
+                    <h2 className="text-2xl font-bold">About me</h2>
+                    <p className="desc">
+                        I'am 18'yo full-stack software developer with 5 years of experience in web-developement, desktop-developement and mobile. I've strong will to solve problems with software. I make rapidly remarkable complex solutions through iteration on each side: frontend and backend. You need attractive design, error safe backend or maybe mobile app experiences? <u>Off course I will make!</u>
+                    </p>
+                    <a className="btn-chtch-stck" href="#tech-stack">Check my tech stack</a>
+                </div>
                 <div id="portfolio" className="card">
                     <h2 className="text-2xl font-bold">Portfolio</h2>
                     <p className="desc">I'm proud to present my projects to you</p>
@@ -84,9 +91,6 @@ export default function Main() {
                     <button className="font-semibold underline text-sky-400 mt-2" onClick={() => setPortfolioCollpased(!isCollapsedPortfolio)}>
                         {isCollapsedPortfolio ? 'Show more' : 'Hide most'}
                     </button>
-                </div>
-                <div id="about-me" className="w-full h-fit">
-                    
                 </div>
             </div>
         </>
