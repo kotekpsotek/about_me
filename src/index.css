@@ -17,3 +17,21 @@
   width: 100vw;
   height:100vh
 }
+
+@layer base {
+  .js-typo {
+    @apply from-yellow-300 to-orange-600;
+  }
+
+  .ts-typo {
+    @apply from-sky-800 to-sky-200;
+  }
+
+  .rs-typo {
+    @apply from-orange-950 to-yellow-950;
+  }
+
+  .py-typo {
+    @apply from-blue-700 to-indigo-900;
+  }
+}
