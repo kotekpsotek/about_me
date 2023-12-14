@@ -14,7 +14,7 @@ export default function UpBar() {
         let className = "";
         if (name == "Contact") className = "p-2 bg-white text-black font-semibold rounded-md"
         
-        return <a href={url} className={className}>{name}</a>
+        return <a href={url} className={className} onClick={_ => displayMobile ? setDisplayMobile(false) : null}>{name}</a>
     }
 
     function closeMobile() {
