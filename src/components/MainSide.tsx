@@ -194,7 +194,7 @@ export default function Main() {
                         <h3 className="text-lg font-semibold">based in Warsaw, Poland</h3>
                         <div className="mt-5 flex gap-x-4">
                             <a className="bg-white rounded text-black p-2" href="#about-me">About me</a>
-                            <a className="border border-white rounded text-white p-2" href="/contac">Contact</a>
+                            <a className="border border-white rounded text-white p-2" href="/contact">Contact</a>
                         </div>
                     </div>
                     <img src={imgProfile} alt="" className="hidden md:block h-3/6 w-3/6 lg:w-fit object-contain"/>

@@ -50,6 +50,26 @@
     border-image: linear-gradient(to right top, #2563eb, #4338ca) 1;
     border-radius: 50px;
   }
+
+  .contact-manners {
+    @apply flex flex-col gap-y-2;
+  }
+
+  .contact-manners > div {
+    @apply text-slate-200 w-full flex gap-x-2;
+  }
+
+  .contact-manners p {
+    @apply flex flex-col md:flex-row;
+  }
+  
+  .contact-manners span {
+    @apply pl-1 flex text-lime-100 font-semibold underline hover:text-lime-300 transition-all cursor-pointer;
+  }
+
+  .contact-manners .img {
+    width: 35px;
+  }
 }
 
 @layer components {
