@@ -21,6 +21,8 @@ import MongoDB from "../assets/mongoDB.png";
 import Cassandra from "../assets/ApacheCassandra.png";
 import PostgreSQL from "../assets/PostgreSQL.png";
 import MariaDB from "../assets/MariaDB.png";
+    // Tools
+import Docker from "../assets/docker.png";
 
 export default function Main() {
     let [isCollapsedPortfolio, setPortfolioCollpased] = useState(true)
@@ -142,7 +144,16 @@ export default function Main() {
             }
         ]
     }
-    
+    const bucketTools = {
+        name: "Tools",
+        bucket: [
+            { 
+                name: "Docker",
+                desc: "Developement with him started be grity-nitty",
+                imgSrc: Docker
+            },
+        ]
+    }
     return (
         <>
             <div id="all"  className="flex flex-col gap-y-20">
@@ -204,6 +215,7 @@ export default function Main() {
                     <div className="flex flex-col gap-y-20">
                         <TechStackBranch {...bucketLanguagesFrameworks}/>
                         <TechStackBranch {...bucketDatabases}/>
+                        <TechStackBranch {...bucketTools}/>
                     </div>
                 </div>
             </div>

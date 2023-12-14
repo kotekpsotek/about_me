@@ -19,7 +19,7 @@ export default function Branch({ name, bucket }: Props) {
 
             itSetps += 1;
             return (
-                <div className={`flex ${itSetps % 2 == 0 ? "self-start" : "self-end"} gap-x-4 max-w-2xl`}>
+                <div className={`flex ${itSetps % 2 == 0 || window.innerWidth <= 500 ? "self-start" : "self-end"} gap-x-4 max-w-2xl`}>
                     <img src={d.imgSrc} alt="Tech image" className="tech-img"/>
                     <div className="txt">
                         <h4 className="text-lg font-bold">{d.name}</h4>
@@ -44,7 +44,7 @@ export default function Branch({ name, bucket }: Props) {
                 }
             </div>
             <button className="text-sky-500 font-bold underline" onClick={_ => setShowAll(!showAll)}>
-                {!showAll ? "Show All" : "Roll"}
+                {!showAll ? (bucket.length > 3 ? "Show All" : "") : "Roll"}
             </button>
         </div>
     )

@@ -72,6 +72,13 @@
     background-color: rgb(34, 28, 28);
     object-fit: contain;
   }
+
+  @media screen and (max-width: 500px) {
+    .tech-img {
+      width: 100px;
+      height: 100px;
+    }
+  }
  /*  .semi-card > .desc {
     width: 180px;
     height: 100%;

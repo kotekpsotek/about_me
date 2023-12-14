@@ -10,7 +10,10 @@ export default function UpBar() {
     ]
     
     const mapActions = ({ name, url }: typeof actions[0]) => {
-        return <a href={url} key={useId()}>{name}</a>
+        let className = "";
+        if (name == "Contact") className = "p-2 bg-white text-black font-semibold rounded-md"
+        
+        return <a href={url} key={useId()} className={className}>{name}</a>
     }
 
     return (
@@ -23,7 +26,7 @@ export default function UpBar() {
                 <button className="absolute right-0 md:invisible">
                     <OverflowMenuHorizontal size={28}/>
                 </button>
-                <div id="direct" className="invisible md:visible flex gap-x-5">
+                <div id="direct" className="invisible md:visible flex gap-x-5 items-center">
                     {
                         actions.map(mapActions)
                     }
