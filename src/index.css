@@ -36,11 +36,11 @@
   }
 
   .items {
-    @apply grid grid-cols-3 gap-5;
+    @apply grid grid-cols-1 md:grid-cols-3 gap-5;
   }
 
   .items.collapsed {
-    @apply grid-rows-1 overflow-hidden;
+    @apply grid-rows-2 md:grid-rows-1 overflow-hidden;
     grid-auto-rows: 0px;
   }
 

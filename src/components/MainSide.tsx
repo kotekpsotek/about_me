@@ -146,7 +146,7 @@ export default function Main() {
             },
             {
                 name: "MariaDB",
-                desc: "Maria gives you efficiency and has great community support",
+                desc: "Maria gives me efficiency and has great community support",
                 imgSrc: MariaDB
             }
         ]
@@ -156,7 +156,7 @@ export default function Main() {
         bucket: [
             { 
                 name: "Docker",
-                desc: "Developement with him started be grity-nitty",
+                desc: "Developement with him started be gritty-nitty",
                 imgSrc: Docker
             },
         ]
@@ -202,7 +202,7 @@ export default function Main() {
                 <div id="about-me" className="text-white p-5 flex flex-col gap-y-3">
                     <h2 className="text-3xl font-bold">About me</h2>
                     <p className="desc mt-2">
-                        I'am 18'yo full-stack software developer with 5 years of experience in web-developement, desktop-developement and mobile. I've strong will to solve problems with software. I make rapidly remarkable complex solutions through iteration on each side: frontend and backend. You need attractive design, error safe backend or maybe mobile app experiences? <u>Off course I will make!</u>
+                        I'am 18'yo full-stack software developer with 5 years of experience in web-developement, desktop-developement and mobile. I've strong will to solve world problems through software. I make rapidly remarkable complex solutions by iteration on each side: frontend and backend. You need attractive design, error safe backend or maybe mobile app experiences? <u>Off course I will make!</u>
                     </p>
                     <a className="btn-chtch-stck mt-3" href="#tech-stack">Check my tech stack</a>
                 </div>
