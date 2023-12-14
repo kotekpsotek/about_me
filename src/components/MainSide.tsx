@@ -27,10 +27,17 @@ import Docker from "../assets/docker.png";
 export default function Main() {
     let [isCollapsedPortfolio, setPortfolioCollpased] = useState(true)
     
+    let itEration = 0;
     function setTypoColor(cls: string, previous?: string) {
-        const el = document.getElementsByClassName("sequence-typer")[0];
-        if (previous) el.classList.remove(previous);
-        el.classList.add(cls);
+        const main = () => {
+            const el = document.getElementsByClassName("sequence-typer")[0];
+            if (previous && el?.classList?.contains(previous)) el.classList.remove(previous);
+            el?.classList?.add(cls);
+            itEration += 1;
+        }
+
+        const timeout = itEration != 0 ? 900 : 0;
+        setTimeout(main, timeout);
     }
     
     const portfolioItems: {
@@ -165,16 +172,16 @@ export default function Main() {
                         <TypeAnimation
                             sequence={[
                                 // Same substring at the start will only be typed out once, initially
-                                () => setTypoColor("js-typo"),
+                                () => setTypoColor("js-typo", "py-typo"),
                                 'JS Developer',
                                 1000, // wait 1s before replacing "Mice" with "Hamsters"
-                                () => setTypoColor("ts-typo"),
+                                () => setTypoColor("ts-typo", "js-typo"),
                                 'TypeScript Developer',
                                 1000,
-                                () => setTypoColor("rs-typo"),
+                                () => setTypoColor("rs-typo", "ts-typo"),
                                 'Rust Developer',
                                 1000,
-                                () => setTypoColor("py-typo"),
+                                () => setTypoColor("py-typo", "rs-typo"),
                                 'Python Developer',
                                 1000
                             ]}
