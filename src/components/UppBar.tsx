@@ -1,7 +1,8 @@
-import { useId } from "react";
-import { OverflowMenuHorizontal } from "@carbon/icons-react";
+import { useId, useState } from "react";
+import { OverflowMenuHorizontal, Close } from "@carbon/icons-react";
 
 export default function UpBar() {
+    const [displayMobile, setDisplayMobile] = useState(false);
     const actions: {name: string, url: string}[] = [
         {name: "Home", url: "/home"},
         {name: "Tech Stack", url: "/tech-stack"},
@@ -13,17 +14,41 @@ export default function UpBar() {
         let className = "";
         if (name == "Contact") className = "p-2 bg-white text-black font-semibold rounded-md"
         
-        return <a href={url} key={useId()} className={className}>{name}</a>
+        return <a href={url} className={className}>{name}</a>
+    }
+
+    function closeMobile() {
+        setDisplayMobile(false)
+    }
+
+    function openMobile() {
+        setDisplayMobile(true);
+    }
+
+    /** Only for mobile devices */
+    function makeContactMenu() {
+        return (
+            <div className="w-screen h-screen bg-main text-white absolute top-0 right-0 p-5 flex flex-col gap-y-5">
+                <h2 className="text-xl font-bold text-center text-white">Menu</h2>
+                <button id="close" className="absolute right-5 top-5 flex gap-x-2 justify-center items-center" onClick={closeMobile}>
+                    <Close size={20} fill="#cbd5e1"/>
+                    <p className="text-xs text-slate-400 uppercase small-caps">Close</p>
+                </button>
+                <div className="flex flex-col gap-y-2">
+                    {actions.map(mapActions)}
+                </div>
+            </div>
+        );
     }
 
     return (
-        <div className="w-screen h-14 fixed top-0 right-0 flex justify-between items-center px-5 text-slate-200 lg:px-10 bg-main">
+        <div className="p-5 w-screen h-14 fixed top-0 right-0 flex justify-between items-center text-slate-200 lg:px-10 bg-main">
             <div id="self-company">
                 <p className="font-bold">Kotekpsotek</p>
             </div>
             <div id="actions" className="relative">
                 {/* TODO: create contact page function */}
-                <button className="absolute right-0 md:invisible">
+                <button className="absolute right-10 top-2 md:invisible" onClick={openMobile}>
                     <OverflowMenuHorizontal size={28}/>
                 </button>
                 <div id="direct" className="invisible md:visible flex gap-x-5 items-center">
@@ -32,6 +57,7 @@ export default function UpBar() {
                     }
                 </div>
             </div>
+            {displayMobile ? makeContactMenu() : null}
         </div>
     )
 }
