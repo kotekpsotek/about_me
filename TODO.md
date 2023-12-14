@@ -8,9 +8,11 @@
     - JavaScript,
     - TypeScript,
     - Node.js,
+    - Rust,
+    - Python,
     - React,
     - Svelte,
-    - Rust,
+    - SvelteKit
 
     Databases:
     - Redis,

@@ -1,6 +1,18 @@
 import { useId, useState } from "react";
 import imgProfile from "../assets/profile-img.jpg"
-import { TypeAnimation } from "react-type-animation"
+import { TypeAnimation } from "react-type-animation";
+import TechStackBranch from "./TechStackBranch";
+
+// Images
+import JSimg from "../assets/js.png";
+import TSimg from "../assets/ts.png";
+import NodeJS from "../assets/node.svg";
+import Rust from "../assets/rust.png";
+import Python from "../assets/python.jpg";
+import React from "../assets/react.svg";
+import Svelte from "../assets/svelte.png";
+import SvelteKit from "../assets/SvelteKit.jpg";
+import Tauri from "../assets/tauri.svg"
 
 export default function Main() {
     let [isCollapsedPortfolio, setPortfolioCollpased] = useState(true)
@@ -37,9 +49,59 @@ export default function Main() {
         }
     )
     
+    const bucketLanguagesFrameworks = { 
+        name: "Languages and Frameworks", 
+        bucket: [
+            { 
+                name: "JavaScript",
+                desc: "I love so much",
+                imgSrc: JSimg
+            },
+            { 
+                name: "TypeScript",
+                desc: "I cheat JavaScript with",
+                imgSrc: TSimg
+            },
+            { 
+                name: "Node.js",
+                desc: "Multi-tool for WebDevelopement but not only 😍",
+                imgSrc: NodeJS
+            },
+            { 
+                name: "Rust",
+                desc: "I'm in sick love with in turn of low-level, reliable, safe systems and with pleasant coding/developement experiences",
+                imgSrc: Rust
+            },
+            {
+                name: "Python",
+                desc: "Really efficient one toward production. No as othes use to say 👌",
+                imgSrc: Python
+            },
+            {
+                name: "React",
+                desc: "Shockingly robust and popular JS environemnt friend",
+                imgSrc: React
+            },
+            {
+                name: "Svelte",
+                desc: "No, I actually, I'm heere to explain how I felt in love with tool give allow to build your WebApp conveniently in each step, rapidly, robustly and efficiently with remarkable community support. Is for sure milestone for Web Developement. I'm so much in 💘❤️❤️",
+                imgSrc: Svelte
+            },
+            {
+                name: "SvelteKit",
+                desc: "Full-stack flexible meta-framework for Svelte features: SSR, SSG, SPA, MPA page make modes, abbreviate in pleasure everything",
+                imgSrc: SvelteKit
+            },
+            {
+                name: "tauri",
+                desc: "Breaks collusion of mickey in build efficient desktop profesional app with ease of use WebDev techs like: React and Svelte",
+                imgSrc: Tauri
+            }
+        ] 
+    }
     return (
         <>
-            <div id="all"  className="flex flex-col gap-y-14">
+            <div id="all"  className="flex flex-col gap-y-20">
                 <div id="wr" className="w-screen h-screen flex justify-center items-center px-4 gap-x-8 lg:gap-x-14">
                     <div id="txt" className="text-white">
                         <p className="text-xs uppercase text-slate-500">Welcome in my world</p>
@@ -75,15 +137,15 @@ export default function Main() {
                     </div>
                     <img src={imgProfile} alt="" className="hidden md:block h-3/6 w-3/6 lg:w-fit object-contain"/>
                 </div>
-                <div id="about-me" className="text-white border p-5 flex flex-col gap-y-3">
-                    <h2 className="text-2xl font-bold">About me</h2>
-                    <p className="desc">
+                <div id="about-me" className="text-white p-5 flex flex-col gap-y-3">
+                    <h2 className="text-3xl font-bold">About me</h2>
+                    <p className="desc mt-2">
                         I'am 18'yo full-stack software developer with 5 years of experience in web-developement, desktop-developement and mobile. I've strong will to solve problems with software. I make rapidly remarkable complex solutions through iteration on each side: frontend and backend. You need attractive design, error safe backend or maybe mobile app experiences? <u>Off course I will make!</u>
                     </p>
-                    <a className="btn-chtch-stck" href="#tech-stack">Check my tech stack</a>
+                    <a className="btn-chtch-stck mt-3" href="#tech-stack">Check my tech stack</a>
                 </div>
-                <div id="portfolio" className="card">
-                    <h2 className="text-2xl font-bold">Portfolio</h2>
+                <div id="portfolio" className="card border-teal-100">
+                    <h2 className="text-2xl text-teal-100 font-bold">Portfolio</h2>
                     <p className="desc">I'm proud to present my projects to you</p>
                     <div className={`items ${isCollapsedPortfolio ? "collapsed": ""}`}>
                         {spawnPortfolioItems}
@@ -91,6 +153,11 @@ export default function Main() {
                     <button className="font-semibold underline text-sky-400 mt-2" onClick={() => setPortfolioCollpased(!isCollapsedPortfolio)}>
                         {isCollapsedPortfolio ? 'Show more' : 'Hide most'}
                     </button>
+                </div>
+                <div id="tech-stack" className="card border-none flex flex-col">
+                    <h2 className="text-3xl text-orange-100 font-bold">Tech stack</h2>
+                    <p id="ts-desc">Here's what I use to</p>
+                    <TechStackBranch {...bucketLanguagesFrameworks}/>
                 </div>
             </div>
         </>

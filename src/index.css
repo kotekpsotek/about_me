@@ -54,7 +54,7 @@
 
 @layer components {
   .card {
-    @apply h-fit p-3 rounded bg-transparent border border-teal-100 text-slate-50 flex flex-col;
+    @apply h-fit p-3 bg-transparent border text-slate-50 flex flex-col;
   }
 
   .card > .desc {
@@ -62,9 +62,15 @@
   }
 
   .semi-card {
-    @apply mt-4 p-2 rounded-md bg-slate-700 h-fit w-fit flex gap-x-4 cursor-pointer;
+    @apply text-black mt-4 p-2 rounded-md bg-slate-100 h-fit w-fit flex gap-x-4 cursor-pointer;
   }
 
+  .tech-img {
+    @apply rounded-lg;
+    width: 200px;
+    height: 200px;
+    background-color: rgb(34, 28, 28);
+  }
  /*  .semi-card > .desc {
     width: 180px;
     height: 100%;
