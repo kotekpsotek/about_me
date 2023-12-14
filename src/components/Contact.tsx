@@ -1,6 +1,7 @@
 import { Email as EmailIcon, LogoYoutube, LogoNpm, LogoGithub } from "@carbon/icons-react"
 import { MouseEventHandler, useState } from "react";
 import { Tooltip, Alert, type AlertProps } from "flowbite-react";
+import UpBar from "./UppBar";
 
 export const Email = "michalszczepanski_1@protonmail.com";
 export const Github = "https://github.com/kotekpsotek";
@@ -65,7 +66,7 @@ export default function Contact(/* props: { className?: string } */) {
         }, 155_000)
         
         return (
-            <Alert color="info" className="absolute top-5 right-5">
+            <Alert color="info" className="absolute top-5 right-5" onClick={_ => setAlert(undefined)}>
                 <span className="font-bold">Information!</span> <span className="font-medium">{alert!.name}</span> {alert!.content}
             </Alert>
         )
@@ -73,6 +74,7 @@ export default function Contact(/* props: { className?: string } */) {
     
     return (
         <>
+            <UpBar/>
             {alert ? <SpawnAlert/> : null}
             <div className="eventually-contact w-full h-full p-2 overflow-x-hidden flex justify-center items-center">
                 <div className="text-sm p-5 border border-lime-200 w-full md:w-fit">

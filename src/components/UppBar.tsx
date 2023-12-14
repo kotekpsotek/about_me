@@ -1,12 +1,12 @@
-import { useId, useState } from "react";
+import { useState } from "react";
 import { OverflowMenuHorizontal, Close } from "@carbon/icons-react";
 
 export default function UpBar() {
     const [displayMobile, setDisplayMobile] = useState(false);
     const actions: {name: string, url: string}[] = [
-        {name: "Home", url: "/home"},
-        {name: "Tech Stack", url: "/tech-stack"},
-        {name: "Portfolio", url: "/portfolio"},
+        {name: "Home", url: "/"},
+        {name: "Tech Stack", url: "/#tech-stack"},
+        {name: "Portfolio", url: "/#portfolio"},
         {name: "Contact", url: "/contact"}
     ]
     

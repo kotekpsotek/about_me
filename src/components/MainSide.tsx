@@ -1,4 +1,4 @@
-import { useId, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import imgProfile from "../assets/profile-img.jpg"
 import { TypeAnimation } from "react-type-animation";
 import TechStackBranch from "./TechStackBranch";
@@ -26,6 +26,14 @@ import Docker from "../assets/docker.png";
 
 export default function Main() {
     let [isCollapsedPortfolio, setPortfolioCollpased] = useState(true)
+
+    useEffect(() => {
+        const url = new URL(document.URL);
+
+        if (url.hash && window.scrollY == 0) {
+            document.getElementById(url.hash.replace("#", ""))?.scrollIntoView();
+        }
+    }, []);
     
     let itEration = 0;
     function setTypoColor(cls: string, previous?: string) {
@@ -163,7 +171,7 @@ export default function Main() {
     }
     return (
         <>
-            <div id="all"  className="flex flex-col gap-y-20">
+            <div id="all"  className="flex flex-col gap-y-20 overflow-x-hidden">
                 <div id="wr" className="w-screen h-screen flex justify-center items-center px-4 gap-x-8 lg:gap-x-14">
                     <div id="txt" className="text-white">
                         <p className="text-xs uppercase text-slate-500">Welcome in my world</p>
