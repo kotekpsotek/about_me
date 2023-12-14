@@ -4,8 +4,6 @@ import "./index.css"
 import MainSide from './components/MainSide';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
       <UpBar/>

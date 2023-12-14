@@ -70,6 +70,7 @@
     width: 200px;
     height: 200px;
     background-color: rgb(34, 28, 28);
+    object-fit: contain;
   }
  /*  .semi-card > .desc {
     width: 180px;

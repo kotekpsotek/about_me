@@ -4,6 +4,7 @@ import { TypeAnimation } from "react-type-animation";
 import TechStackBranch from "./TechStackBranch";
 
 // Images
+    // Languages
 import JSimg from "../assets/js.png";
 import TSimg from "../assets/ts.png";
 import NodeJS from "../assets/node.svg";
@@ -12,7 +13,14 @@ import Python from "../assets/python.jpg";
 import React from "../assets/react.svg";
 import Svelte from "../assets/svelte.png";
 import SvelteKit from "../assets/SvelteKit.jpg";
-import Tauri from "../assets/tauri.svg"
+import Tauri from "../assets/tauri.svg";
+import Nativescript from "../assets/nativescript.png";
+    // Databses
+import Redis from "../assets/redis.png";
+import MongoDB from "../assets/mongoDB.png";
+import Cassandra from "../assets/ApacheCassandra.png";
+import PostgreSQL from "../assets/PostgreSQL.png";
+import MariaDB from "../assets/MariaDB.png";
 
 export default function Main() {
     let [isCollapsedPortfolio, setPortfolioCollpased] = useState(true)
@@ -93,12 +101,48 @@ export default function Main() {
                 imgSrc: SvelteKit
             },
             {
-                name: "tauri",
+                name: "Tauri",
                 desc: "Breaks collusion of mickey in build efficient desktop profesional app with ease of use WebDev techs like: React and Svelte",
                 imgSrc: Tauri
+            },
+            {
+                name: "Nativescript",
+                desc: "Remarkable framework to create mobile apps with use of Web-Teach like mentioned loved Svelte",
+                imgSrc: Nativescript
             }
         ] 
     }
+    const bucketDatabases = {
+        name: "Databases",
+        bucket: [
+            { 
+                name: "Redis",
+                desc: "Blazing fast storage with persitance capabilities",
+                imgSrc: Redis
+            },
+            { 
+                name: "MongoDB",
+                desc: "The best for security, consistance, rich types, agile, ease of use, rich aggregation, shocking performance, drives for almost every tech, breathtaking shine documentation,",
+                imgSrc: MongoDB
+            },
+            {
+                name: "Cassandra",
+                desc: "The best for BigData, persiatance, avaiability, effiency for most cases, CQL is pleasant Query Language, hight in ranking with open-source",
+                imgSrc: Cassandra
+            },
+            {
+                name: "PostgreSQL",
+                desc: "Really flexible open source database supporting GIS apps demands",
+                imgSrc: PostgreSQL
+            },
+            {
+                name: "MariaDB",
+                desc: "Maria gives you efficiency and has great community support",
+                imgSrc: MariaDB
+            }
+        ]
+    }
+    
     return (
         <>
             <div id="all"  className="flex flex-col gap-y-20">
@@ -157,7 +201,10 @@ export default function Main() {
                 <div id="tech-stack" className="card border-none flex flex-col">
                     <h2 className="text-3xl text-orange-100 font-bold">Tech stack</h2>
                     <p id="ts-desc">Here's what I use to</p>
-                    <TechStackBranch {...bucketLanguagesFrameworks}/>
+                    <div className="flex flex-col gap-y-20">
+                        <TechStackBranch {...bucketLanguagesFrameworks}/>
+                        <TechStackBranch {...bucketDatabases}/>
+                    </div>
                 </div>
             </div>
         </>
