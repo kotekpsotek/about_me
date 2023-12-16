@@ -1,7 +1,11 @@
-import { useEffect, useId, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import imgProfile from "../assets/profile-img.jpg"
 import { TypeAnimation } from "react-type-animation";
 import TechStackBranch from "./TechStackBranch";
+import { useInView } from "react-intersection-observer";
+
+// Animations
+import RocketAnimation from "../assets/rocket-animation.svg"
 
 // Images
     // Languages
@@ -25,8 +29,15 @@ import MariaDB from "../assets/MariaDB.png";
 import Docker from "../assets/docker.png";
 
 export default function Main() {
-    let [isCollapsedPortfolio, setPortfolioCollpased] = useState(true)
+    let [isCollapsedPortfolio, setPortfolioCollpased] = useState(true);
 
+    /* Handle show animation */
+    let scrollDown = false
+    const [refInView, inView, entry] = useInView({
+        threshold: 0.75
+    });
+
+    // Ass soon as component is mounted or some state 
     useEffect(() => {
         const url = new URL(document.URL);
 
@@ -171,7 +182,7 @@ export default function Main() {
     }
     return (
         <>
-            <div id="all"  className="flex flex-col gap-y-20 overflow-x-hidden md:px-5">
+            <div id="all" className="flex flex-col gap-y-20 overflow-x-hidden md:px-5">
                 <div id="wr" className="w-screen h-screen flex justify-center items-center px-4 gap-x-8 lg:gap-x-14">
                     <div id="txt" className="text-white">
                         <p className="text-xs uppercase text-slate-500">Welcome in my world</p>
@@ -207,7 +218,7 @@ export default function Main() {
                     </div>
                     <img src={imgProfile} alt="" className="hidden md:block h-3/6 w-3/6 lg:w-fit object-contain"/>
                 </div>
-                <div className="img-bg-wrapper">
+                <div className="img-bg-wrapper" ref={refInView}>
                     <div id="about-me" className="ios-like-widget text-white p-5 flex flex-col gap-y-3">
                         <h2 className="text-3xl font-bold">About me</h2>
                         <p className="desc mt-2">
@@ -216,6 +227,13 @@ export default function Main() {
                         <a className="btn-chtch-stck mt-3" href="#tech-stack">Check my tech stack</a>
                     </div>
                 </div>
+                {
+                    inView && entry!.boundingClientRect.top >= 0
+                    ? 
+                    <object className="w-full h-full absolute top-0 right-0" type="image/svg+xml" data={RocketAnimation}>svg-animation</object>
+                    :
+                    null
+                }
                 <div id="portfolio" className="card border-teal-100">
                     <h2 className="text-2xl text-teal-100 font-bold">Portfolio</h2>
                     <p className="desc">I'm proud to present my projects to you</p>
