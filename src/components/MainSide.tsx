@@ -207,12 +207,14 @@ export default function Main() {
                     </div>
                     <img src={imgProfile} alt="" className="hidden md:block h-3/6 w-3/6 lg:w-fit object-contain"/>
                 </div>
-                <div id="about-me" className="text-white p-5 flex flex-col gap-y-3">
-                    <h2 className="text-3xl font-bold">About me</h2>
-                    <p className="desc mt-2">
-                        I'am 18'yo full-stack software developer with 5 years of experience in web-developement, desktop-developement and mobile. I've strong will to solve world problems through software. I make rapidly remarkable complex solutions by iteration on each side: frontend and backend. You need attractive design, error safe backend or maybe mobile app experiences? <u>Off course I will make!</u>
-                    </p>
-                    <a className="btn-chtch-stck mt-3" href="#tech-stack">Check my tech stack</a>
+                <div className="img-bg-wrapper">
+                    <div id="about-me" className="ios-like-widget text-white p-5 flex flex-col gap-y-3">
+                        <h2 className="text-3xl font-bold">About me</h2>
+                        <p className="desc mt-2">
+                            I'am 18'yo full-stack software developer with 5 years of experience in web-developement, desktop-developement and mobile. I've strong will to solve world problems through software. I make rapidly remarkable complex solutions by iteration on each side: frontend and backend. You need attractive design, error safe backend or maybe mobile app experiences? <u>Off course I will make!</u>
+                        </p>
+                        <a className="btn-chtch-stck mt-3" href="#tech-stack">Check my tech stack</a>
+                    </div>
                 </div>
                 <div id="portfolio" className="card border-teal-100">
                     <h2 className="text-2xl text-teal-100 font-bold">Portfolio</h2>

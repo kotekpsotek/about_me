@@ -66,7 +66,7 @@ export default function Contact(/* props: { className?: string } */) {
         }, 155_000)
         
         return (
-            <Alert color="info" className="absolute top-5 right-5" onClick={_ => setAlert(undefined)}>
+            <Alert color="info" className="absolute top-20 right-5" onClick={_ => setAlert(undefined)}>
                 <span className="font-bold">Information!</span> <span className="font-medium">{alert!.name}</span> {alert!.content}
             </Alert>
         )
