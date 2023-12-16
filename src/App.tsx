@@ -1,9 +1,9 @@
-import { useState } from 'react'
 import UpBar from "./components/UppBar";
 import "./index.css"
 import MainSide from './components/MainSide';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 function App() {
   const mainComponent = (
@@ -19,6 +19,7 @@ function App() {
         <Route path='/' element={mainComponent}/>
         <Route path='/contact' element={<Contact/>}/>
       </Routes>
+      <Footer/>
     </BrowserRouter>
   )
 }

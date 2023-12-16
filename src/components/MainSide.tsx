@@ -171,7 +171,7 @@ export default function Main() {
     }
     return (
         <>
-            <div id="all"  className="flex flex-col gap-y-20 overflow-x-hidden">
+            <div id="all"  className="flex flex-col gap-y-20 overflow-x-hidden md:px-5">
                 <div id="wr" className="w-screen h-screen flex justify-center items-center px-4 gap-x-8 lg:gap-x-14">
                     <div id="txt" className="text-white">
                         <p className="text-xs uppercase text-slate-500">Welcome in my world</p>
