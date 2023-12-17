@@ -53,9 +53,10 @@ export default function Contact(/* props: { className?: string } */) {
             }
         }
 
+        const text = params.type == "copy" ? params.text : params.link;
         return (
             <Tooltip content={params.type == "copy" ? "Copy" : "Go to location"} className="flex flex-row" trigger="hover">
-                <span id={params.id} onClick={hndl}>{YouTube}</span>
+                <span id={params.id} onClick={hndl}>{text}</span>
             </Tooltip>
         )
     }
