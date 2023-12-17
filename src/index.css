@@ -108,10 +108,25 @@
     background: transparent;
   }
 
+  .phone-animation {
+    position: absolute;
+    top: 100px;
+    right: 5px;
+    width: 150px;
+    height: 150px;
+  }
+
   @media screen and (max-width: 500px) {
     .tech-img {
       width: 100px;
       height: 100px;
+    }
+
+    .phone-animation {
+      bottom: 100px;
+      width: 100px;
+      height: 100px;
+      right: calc(50% - 100px);
     }
   }
  /*  .semi-card > .desc {

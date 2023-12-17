@@ -8,6 +8,9 @@ export const Github = "https://github.com/kotekpsotek";
 export const NPM = "https://www.npmjs.com/~kotekpsotek";
 export const YouTube = "https://www.youtube.com/@kotekpsotek111"
 
+// Animation
+import HandPhoneAnimation from "../assets/hand_is_animation.svg";
+
 export default function Contact(/* props: { className?: string } */) {
     interface Id {
         id?: string
@@ -64,10 +67,10 @@ export default function Contact(/* props: { className?: string } */) {
     const SpawnAlert = () => {
         setTimeout(() => {
             setAlert(undefined);
-        }, 155_000)
+        }, 10_000)
         
         return (
-            <Alert color="info" className="absolute top-20 right-5" onClick={_ => setAlert(undefined)}>
+            <Alert color="info" className="absolute top-20 right-5 z-40" onClick={_ => setAlert(undefined)}>
                 <span className="font-bold">Information!</span> <span className="font-medium">{alert!.name}</span> {alert!.content}
             </Alert>
         )
@@ -77,6 +80,7 @@ export default function Contact(/* props: { className?: string } */) {
         <>
             <UpBar/>
             {alert ? <SpawnAlert/> : null}
+            <object className="phone-animation" data={HandPhoneAnimation}>Ring-Ring Phone SVG Animation</object>
             <div className="eventually-contact w-full h-full p-2 overflow-x-hidden flex justify-center items-center">
                 <div className="text-sm p-5 border border-lime-200 w-full md:w-fit">
                     <h2 className="text-3xl text-white font-bold">Contact</h2>
