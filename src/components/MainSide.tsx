@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { ReactEventHandler, useCallback, useEffect, useId, useRef, useState } from "react";
 import imgProfile from "../assets/profile-img.jpg"
 import { TypeAnimation } from "react-type-animation";
 import TechStackBranch from "./TechStackBranch";
@@ -67,6 +67,12 @@ export default function Main() {
         setTimeout(main, timeout);
     }
     
+    const animationLoaded: ReactEventHandler<HTMLObjectElement> = (ev) => {
+        setTimeout(() => {
+            inView ? (ev?.target as HTMLDivElement)?.remove() : null;
+        }, 3_000);
+    };
+
     const portfolioItems: {
         name: string,
         description: string,
@@ -284,7 +290,7 @@ export default function Main() {
                 {
                     inView && entry!.boundingClientRect.top >= 0
                     ? 
-                    <object className="w-full h-fit md:h-full absolute bottom-1/2 md:bottom-0 md:top-0 md:right-0 overflow-hidden" type="image/svg+xml" data={RocketAnimation}>svg-animation</object>
+                    <object className="w-full h-fit md:h-full absolute bottom-1/2 md:bottom-0 md:top-0 md:right-0 overflow-hidden" type="image/svg+xml" data={RocketAnimation} onLoad={animationLoaded}>svg-animation</object>
                     :
                     null
                 }
