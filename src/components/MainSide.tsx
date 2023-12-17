@@ -34,7 +34,7 @@ import PostgreSQL from "../assets/PostgreSQL.png";
 import MariaDB from "../assets/MariaDB.png";
     // Tools
 import Docker from "../assets/docker.png";
-import { Link } from "react-router-dom";
+import SvGator from "../assets/svgator.jpg"
 
 export default function Main() {
     let [isCollapsedPortfolio, setPortfolioCollpased] = useState(true);
@@ -227,6 +227,11 @@ export default function Main() {
                 desc: "Developement with him started be gritty-nitty",
                 imgSrc: Docker
             },
+            {
+                name: "SvGator",
+                desc: "My gorgeous friend in make SVG Animations",
+                imgSrc: SvGator
+            }
         ]
     }
     return (

@@ -44,7 +44,7 @@ export default function UpBar() {
     return (
         <div className="p-5 w-screen h-14 fixed top-0 right-0 flex justify-between items-center text-slate-200 z-10 lg:px-10 bg-main">
             <div id="self-company">
-                <p className="font-bold">Kotekpsotek</p>
+                <a className="font-bold" href="/">Kotekpsotek</a>
             </div>
             <div id="actions" className="relative">
                 {/* TODO: create contact page function */}
