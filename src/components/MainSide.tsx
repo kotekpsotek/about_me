@@ -63,7 +63,11 @@ export default function Main() {
     const portfolioItems: {
         name: string,
         description: string,
-        src?: string,
+        link?: string,
+        images?: {
+            src: string,
+            alt: string
+        }[]
     }[] = [
         { name: "Test", description: "Lorem ipsum dolor set", src: "" },
         { name: "Test", description: "Lorem ipsum dolor set", src: "" },
