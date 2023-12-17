@@ -230,7 +230,7 @@ export default function Main() {
                 {
                     inView && entry!.boundingClientRect.top >= 0
                     ? 
-                    <object className="w-full h-full absolute top-0 right-0" type="image/svg+xml" data={RocketAnimation}>svg-animation</object>
+                    <object className="w-full h-fit md:h-full absolute bottom-1/2 md:bottom-0 md:top-0 md:right-0 overflow-hidden" type="image/svg+xml" data={RocketAnimation}>svg-animation</object>
                     :
                     null
                 }

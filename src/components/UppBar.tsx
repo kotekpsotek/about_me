@@ -48,7 +48,7 @@ export default function UpBar() {
             </div>
             <div id="actions" className="relative">
                 {/* TODO: create contact page function */}
-                <button className="absolute right-10 top-2 md:invisible" onClick={openMobile}>
+                <button className="absolute right-0 top-2 md:invisible" onClick={openMobile}>
                     <OverflowMenuHorizontal size={28}/>
                 </button>
                 <div id="direct" className="invisible md:visible flex gap-x-5 items-center">
