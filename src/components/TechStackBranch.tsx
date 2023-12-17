@@ -14,12 +14,12 @@ export default function Branch({ name, bucket }: Props) {
 
     let itSetps = 1; // Next item will be in oposite site to current
     const spawnBucketDash = function(bucketLike: typeof bucket | undefined[]) {
-        return bucketLike.map((d) => {
+        return bucketLike.map((d, i) => {
             if (!d) return (<></>);
 
             itSetps += 1;
             return (
-                <div className={`flex ${itSetps % 2 == 0 || window.innerWidth <= 500 ? "self-start" : "self-end"} gap-x-4 max-w-2xl`}>
+                <div className={`flex ${itSetps % 2 == 0 || window.innerWidth <= 500 ? "self-start" : "self-end"} gap-x-4 max-w-2xl`} key={`${Date.now()}-${i}`}>
                     <img src={d.imgSrc} alt="Tech image" className="tech-img"/>
                     <div className="txt">
                         <h4 className="text-lg font-bold">{d.name}</h4>

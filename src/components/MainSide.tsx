@@ -27,6 +27,7 @@ import PostgreSQL from "../assets/PostgreSQL.png";
 import MariaDB from "../assets/MariaDB.png";
     // Tools
 import Docker from "../assets/docker.png";
+import { Link } from "react-router-dom";
 
 export default function Main() {
     let [isCollapsedPortfolio, setPortfolioCollpased] = useState(true);
@@ -105,12 +106,12 @@ export default function Main() {
             },
             { 
                 name: "Rust",
-                desc: "I'm in sick love with in turn of low-level, reliable, safe systems and with pleasant coding/developement experiences",
+                desc: "I'm in sick love with. Is all about turn of low-level, reliable, safe systems with pleasant developement experiences",
                 imgSrc: Rust
             },
             {
                 name: "Python",
-                desc: "Really efficient one toward production. No as othes use to say 👌",
+                desc: "Really efficient one toward production",
                 imgSrc: Python
             },
             {
@@ -120,12 +121,12 @@ export default function Main() {
             },
             {
                 name: "Svelte",
-                desc: "No, I actually, I'm heere to explain how I felt in love with tool give allow to build your WebApp conveniently in each step, rapidly, robustly and efficiently with remarkable community support. Is for sure milestone for Web Developement. I'm so much in 💘❤️❤️",
+                desc: "You know that feeling when everything is totally clever? I constantly because this tool gives me ability to build web apps conveniently by each step. Transparency, rapidiness, robust and efficiency its keyrules 💘❤️❤️",
                 imgSrc: Svelte
             },
             {
                 name: "SvelteKit",
-                desc: "Full-stack flexible meta-framework for Svelte features: SSR, SSG, SPA, MPA page make modes, abbreviate in pleasure everything",
+                desc: "My desired meta-framework for Svelte, featuring: SSR, SSG, SPA, MPA, abreviating in pleasure everything",
                 imgSrc: SvelteKit
             },
             {
@@ -135,7 +136,7 @@ export default function Main() {
             },
             {
                 name: "Nativescript",
-                desc: "Remarkable framework to create mobile apps with use of Web-Teach like mentioned loved Svelte",
+                desc: "Remarkable framework to make mobile apps with use of Web-Teach like mentioned loved Svelte, React",
                 imgSrc: Nativescript
             }
         ] 
@@ -150,12 +151,12 @@ export default function Main() {
             },
             { 
                 name: "MongoDB",
-                desc: "The best for security, consistance, rich types, agile, ease of use, rich aggregation, shocking performance, drives for almost every tech, breathtaking shine documentation,",
+                desc: "The best for security, consistance, rich types, agile, ease of use, rich aggregation, shocking performance, drives for almost every tech, breathtaking shine documentation ",
                 imgSrc: MongoDB
             },
             {
                 name: "Cassandra",
-                desc: "The best for BigData, persiatance, avaiability, effiency for most cases, CQL is pleasant Query Language, hight in ranking with open-source",
+                desc: "The best for BigData, persiatance, avaiability, effiency for most cases, CQL is pleasant Query Language, hight in my ranking with open-source",
                 imgSrc: Cassandra
             },
             {
@@ -222,7 +223,7 @@ export default function Main() {
                     <div id="about-me" className="ios-like-widget text-white p-5 flex flex-col gap-y-3">
                         <h2 className="text-3xl font-bold">About me</h2>
                         <p className="desc mt-2">
-                            I'am 18'yo full-stack software developer with 5 years of experience in web-developement, desktop-developement and mobile. I've strong will to solve world problems through software. I make rapidly remarkable complex solutions by iteration on each side: frontend and backend. You need attractive design, error safe backend or maybe mobile app experiences? <u>Off course I will make!</u>
+                            I'm 19'yo full-stack software developer with 5 years of experience in web-developement, desktop-developement and mobile. I've strong will to solve problems and learning. I'm self-player but I like to make solutions in teams too. My hobby is bike and aeronautic topics. You need attractive design, error safe backend or maybe mobile app experiences? <a href="/contact" className="underline">You can contact with me!</a>
                         </p>
                         <a className="btn-chtch-stck mt-3" href="#tech-stack">Check my tech stack</a>
                     </div>
@@ -236,7 +237,7 @@ export default function Main() {
                 }
                 <div id="portfolio" className="card border-teal-100">
                     <h2 className="text-2xl text-teal-100 font-bold">Portfolio</h2>
-                    <p className="desc">I'm proud to present my projects to you</p>
+                    <p className="desc">I'm proud to present my projects</p>
                     <div className={`items ${isCollapsedPortfolio ? "collapsed": ""}`}>
                         {spawnPortfolioItems}
                     </div>

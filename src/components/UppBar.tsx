@@ -10,11 +10,11 @@ export default function UpBar() {
         {name: "Contact", url: "/contact"}
     ]
     
-    const mapActions = ({ name, url }: typeof actions[0]) => {
+    const mapActions = ({ name, url }: typeof actions[0], i: number) => {
         let className = "";
         if (name == "Contact") className = "p-2 bg-white text-black font-semibold rounded-md"
         
-        return <a href={url} className={className} onClick={_ => displayMobile ? setDisplayMobile(false) : null}>{name}</a>
+        return <a href={url} className={className} onClick={_ => displayMobile ? setDisplayMobile(false) : null} key={`uppbar-${i}`}>{name}</a>
     }
 
     function closeMobile() {
