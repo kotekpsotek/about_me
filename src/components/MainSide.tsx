@@ -7,6 +7,13 @@ import { useInView } from "react-intersection-observer";
 // Animations
 import RocketAnimation from "../assets/rocket-animation.svg"
 
+// Portfolio
+import createAirline from "../assets/portfolio/airlinemanager/create-airline.png";
+import createRoute from "../assets/portfolio/airlinemanager/create-route.png";
+import userRoutes from "../assets/portfolio/airlinemanager/your-routes.png";
+import fuelMarket from "../assets/portfolio/airlinemanager/fuel-market.png";
+import analisysDashboard from "../assets/portfolio/airlinemanager/analisys-dashboard.png";
+
 // Images
     // Languages
 import JSimg from "../assets/js.png";
@@ -64,27 +71,64 @@ export default function Main() {
         name: string,
         description: string,
         link?: string,
+        iframe?: string,
+        video?: string,
         images?: {
             src: string,
             alt: string
         }[]
     }[] = [
-        { name: "Test", description: "Lorem ipsum dolor set", src: "" },
-        { name: "Test", description: "Lorem ipsum dolor set", src: "" },
-        { name: "Test", description: "Lorem ipsum dolor set", src: "" },
-        { name: "Test", description: "Lorem ipsum dolor set", src: "" },
-        { name: "Test", description: "Lorem ipsum dolor set", src: "" },
+        { name: "WastleDB", description: "SQL database in Rust", link: "https://github.com/kotekpsotek/wastledb", iframe: "/wastle_db.html" },
+        { name: "WastleDB Manager", description: "GUI management solution for WastleDB", link: "https://github.com/kotekpsotek/wastledb-gui-tool", iframe: "/wastle_db_manager.html" },
+        { name: "Instagram Mobile App", description: "Instagram mobile app clone", link: "https://github.com/kotekpsotek/instagram", iframe: "/instagram.html" },
+        { name: "Shopizard", description: "Open Source shop creation and management platform", link: "https://github.com/kotekpsotek/shop_creator", iframe: "/shopizard.html" },
+        { name: "VeloStore", description: "Bike shop for every Velo Lover", link: "https://github.com/kotekpsotek/VeloStore", video: "https://www.youtube.com/embed/TF8mp2OVNvI?si=ukZSl1SYIET3b4D6" },
+        { name: "@opinions-board/svelte", description: "Open source opinions solution for Svelte as NPM Component", link: "https://www.npmjs.com/package/@opinions-board/svelte", iframe: "/opinionsboard.html" },
+        { name: "@svelte-chat", description: "Easy to use on page NPM Chat Addon for Svelte", link: "https://www.npmjs.com/package/@svelte-chat/install_all", iframe: "sveltechat.html" },
+        { name: "airline-manager-game", description: "Here you can incarnate in Airline Manager Role in your browswer", images: [{ src: createAirline, alt: "Create Airline"}, { src: createRoute, alt: "Create route"}, { src: userRoutes, alt: "User routes"}, { src: fuelMarket, alt: "Fuel Market"}, { src: analisysDashboard, alt: "Analisys Dashboard"}] },
+        { name: "CaterChef", description: "Catering Service", link: "https://github.com/kotekpsotek/catering-website", iframe: "/catering.html" },
+        { name: "Keyboard_Sounds", description: "Imagine that every key can be amazing sound? Transform yourself in DJ without additional equipement", link: "https://github.com/kotekpsotek/keyboard_sounds", iframe: "/keyboardsounds.html" },
+        { name: "microsoft-teams-automation", description: "Tool automates scheduled meetings in MS Teams", link: "https://github.com/kotekpsotek/microsoft-teams-automatization", iframe: "/teamsautomation.html" },
+        { name: "Mobile Journal", description: "Mobile journalist application harvesting polish top media in bucket", link: "https://github.com/kotekpsotek/mobile-journal", iframe: "/mobilejournal.html" },
+        { name: "awesome-instaling", description: "Powerfull bot for instaling.pl website", link: "https://github.com/kotekpsotek/awesome-instaling", iframe: "/awesomeinstaling.html" },
+        { name: "opengl-with-rust", description: "OpenGL usage from Rust via 'glium' safe bindings", link: "https://github.com/kotekpsotek/OpenGL-with-Rust" }
     ]
 
     const spawnPortfolioItems = portfolioItems.map(
-        ({ name, description, src }) => {
+        ({ name, description, link, video, images, iframe }) => {
             return (
-                <a className="semi-card" key={useId()} href={src}>
+                <a className="semi-card" key={useId()} href={link || ""}>
                     <div id="text">
                         <h4 className="text-xl font-semibold">{name}</h4>
                         <p className="h-full">{description}</p>
                     </div>
-                    <img style={{ width: '250px', height: '250px' }} src={src}/>
+                    {
+                        video 
+                        ?
+                        <iframe src={video}></iframe>
+                        :
+                        null
+                    }
+                    {
+                        images
+                        ?
+                        (
+                            <div className="portfolio-imgs-item">
+                                {images.map(imgParams => {
+                                    return <img {...imgParams}/>
+                                })}
+                            </div>
+                        )
+                        :
+                        null
+                    }
+                    {
+                        !video && !images && iframe
+                        ?
+                        <iframe src={iframe} style={{ pointerEvents: "none", overflow: "scroll" }}/>
+                        :
+                        null
+                    }
                 </a>
             )
         }

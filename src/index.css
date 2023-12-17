@@ -82,7 +82,8 @@
   }
 
   .semi-card {
-    @apply text-black mt-4 p-2 rounded-md bg-slate-100 h-fit w-fit flex gap-x-4 cursor-pointer;
+    @apply w-full h-full text-black mt-4 p-2 rounded-md bg-slate-100 flex gap-x-4 justify-between cursor-pointer;
+    height: 250px;
   }
 
   .tech-img {
