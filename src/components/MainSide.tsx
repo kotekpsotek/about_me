@@ -2,8 +2,6 @@ import { useEffect, useId, useState } from "react";
 import imgProfile from "../assets/profile-img.jpg"
 import { TypeAnimation } from "react-type-animation";
 import TechStackBranch from "./TechStackBranch";
-// import { useInView } from "react-intersection-observer";
-import ReactDOM from "react-dom";
 
 // Animations
 import RocketAnimation from "../assets/rocket-animation.svg"
@@ -55,7 +53,7 @@ export default function Main() {
             document.getElementById(url.hash.replace("#", ""))?.scrollIntoView();
         }
 
-        const observer = new IntersectionObserver((entries, observer) => {
+        const observer = new IntersectionObserver(entries => {
             const removeAnimation = () => {
                 const tg = document.getElementById('animation-rocket-obj');
                 if (tg) tg.remove();
