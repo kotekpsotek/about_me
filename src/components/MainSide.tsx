@@ -59,11 +59,10 @@ export default function Main() {
                 if (tg) tg.remove();
                 rocketAnimationDisplay = false;
                 timeoutRocket = null;
-                console.log(tg)
             }
             
             const animationLoaded = () => {
-                timeoutRocket = setTimeout(removeAnimation, 3_000);
+                timeoutRocket = setTimeout(removeAnimation, 1_500);
             };
 
             entries.forEach(en => {
