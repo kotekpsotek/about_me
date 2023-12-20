@@ -1,8 +1,9 @@
-import { ReactEventHandler, useCallback, useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import imgProfile from "../assets/profile-img.jpg"
 import { TypeAnimation } from "react-type-animation";
 import TechStackBranch from "./TechStackBranch";
-import { useInView } from "react-intersection-observer";
+// import { useInView } from "react-intersection-observer";
+import ReactDOM from "react-dom";
 
 // Animations
 import RocketAnimation from "../assets/rocket-animation.svg"
@@ -40,18 +41,60 @@ export default function Main() {
     let [isCollapsedPortfolio, setPortfolioCollpased] = useState(true);
 
     /* Handle show animation */
-    let scrollDown = false
-    const [refInView, inView, entry] = useInView({
-        threshold: 0.75
-    });
+    // const [refInView, inView, entry] = useInView({
+    // //     threshold: 0.75
+    // // });
 
     // Ass soon as component is mounted or some state 
+    let rocketAnimationDisplay = false;
+    let timeoutRocket: NodeJS.Timeout | null = null;
     useEffect(() => {
         const url = new URL(document.URL);
 
         if (url.hash && window.scrollY == 0) {
             document.getElementById(url.hash.replace("#", ""))?.scrollIntoView();
         }
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            const removeAnimation = () => {
+                const tg = document.getElementById('animation-rocket-obj');
+                if (tg) tg.remove();
+                rocketAnimationDisplay = false;
+                timeoutRocket = null;
+                console.log(tg)
+            }
+            
+            const animationLoaded = () => {
+                timeoutRocket = setTimeout(removeAnimation, 3_000);
+            };
+
+            entries.forEach(en => {
+                if (en.isIntersecting && !rocketAnimationDisplay) {
+                    rocketAnimationDisplay = true;
+                    const element = (function() {
+                        const animationObject = document.createElement("object");
+                        animationObject.id = 'animation-rocket-obj';
+                        animationObject.className = 'w-full h-fit md:h-full absolute bottom-1/2 md:bottom-0 md:top-0 md:right-0 overflow-hidden';
+                        animationObject.type = 'image/svg+xml';
+                        animationObject.data = RocketAnimation;
+                        animationObject.textContent = "svg-animation";
+                        animationObject.onload = animationLoaded
+                        return animationObject;
+                    })();
+                    const after = document.getElementById("portfolio")!;
+                    after.parentNode!.insertBefore(element, after);
+                }
+                else if (!en.isIntersecting && document.getElementById('animation-rocket-obj')) {
+                    document.getElementById('animation-rocket-obj')?.remove();
+                    rocketAnimationDisplay = false;
+                    if (timeoutRocket) {
+                        clearTimeout(timeoutRocket);
+                        timeoutRocket = null;
+                    }
+                }
+            });
+        }, { threshold: 0.75 });
+        observer.observe(document.getElementById("img-bg-wr")!);
     }, []);
     
     let itEration = 0;
@@ -66,12 +109,6 @@ export default function Main() {
         const timeout = itEration != 0 ? 900 : 0;
         setTimeout(main, timeout);
     }
-    
-    const animationLoaded: ReactEventHandler<HTMLObjectElement> = (ev) => {
-        setTimeout(() => {
-            inView ? (ev?.target as HTMLDivElement)?.remove() : null;
-        }, 3_000);
-    };
 
     const portfolioItems: {
         name: string,
@@ -278,7 +315,7 @@ export default function Main() {
                     </div>
                     <img src={imgProfile} alt="" className="hidden md:block h-3/6 w-3/6 lg:w-fit object-contain"/>
                 </div>
-                <div className="img-bg-wrapper" ref={refInView}>
+                <div id="img-bg-wr" className="img-bg-wrapper" /* ref={refInView} */>
                     <div id="about-me" className="ios-like-widget text-white p-5 flex flex-col gap-y-3">
                         <h2 className="text-3xl font-bold">About me</h2>
                         <p className="desc mt-2">
@@ -287,13 +324,13 @@ export default function Main() {
                         <a className="btn-chtch-stck mt-3" href="#tech-stack">Check my tech stack</a>
                     </div>
                 </div>
-                {
+                {/* {
                     inView && entry!.boundingClientRect.top >= 0
                     ? 
-                    <object className="w-full h-fit md:h-full absolute bottom-1/2 md:bottom-0 md:top-0 md:right-0 overflow-hidden" type="image/svg+xml" data={RocketAnimation} onLoad={animationLoaded}>svg-animation</object>
+                    <object id="animation-rocket-obj" className="w-full h-fit md:h-full absolute bottom-1/2 md:bottom-0 md:top-0 md:right-0 overflow-hidden" type="image/svg+xml" data={RocketAnimation} onLoad={animationLoaded}>svg-animation</object>
                     :
                     null
-                }
+                } */}
                 <div id="portfolio" className="card border-teal-100">
                     <h2 className="text-2xl text-teal-100 font-bold">Portfolio</h2>
                     <p className="desc">I'm proud to present my projects</p>
