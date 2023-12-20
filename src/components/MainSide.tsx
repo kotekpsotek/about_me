@@ -157,8 +157,8 @@ export default function Main() {
                         ?
                         (
                             <div className="portfolio-imgs-item">
-                                {images.map(imgParams => {
-                                    return <img {...imgParams}/>
+                                {images.map((imgParams, i) => {
+                                    return <img key={`pii-${i}`} {...imgParams}/>
                                 })}
                             </div>
                         )
