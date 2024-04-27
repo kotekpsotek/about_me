@@ -34,6 +34,7 @@ import MariaDB from "../assets/MariaDB.png";
     // Tools
 import Docker from "../assets/docker.png";
 import SvGator from "../assets/svgator.jpg"
+import { Opinions } from "./Opinions";
 
 export default function Main() {
     let [isCollapsedPortfolio, setPortfolioCollpased] = useState(true);
@@ -316,7 +317,7 @@ export default function Main() {
                     <div id="about-me" className="ios-like-widget text-white p-5 flex flex-col gap-y-3">
                         <h2 className="text-3xl font-bold">About me</h2>
                         <p className="desc mt-2">
-                            I'm 19'yo full-stack software developer with 5 years of experience in web-developement, desktop-developement and mobile. I've strong will to solve problems and learning. I'm self-player but I like to make solutions in teams too. My hobby is bike and aeronautic topics. You need attractive design, error safe backend or maybe mobile app experiences? <a href="/contact" className="underline">You can contact with me!</a>
+                            I'm full-stack software developer with 7 years of experience in web-developement, desktop-developement and mobile. I've strong will to solve problems and learning. I'm teams player and self-anchor. My hobby is bike and aeronautic topics. You need attractive design, error safe backend or maybe mobile app experiences? <a href="/contact" className="underline">You can contact with me!</a>
                         </p>
                         <a className="btn-chtch-stck mt-3" href="#tech-stack">Check my tech stack</a>
                     </div>
@@ -328,6 +329,18 @@ export default function Main() {
                     :
                     null
                 } */}
+                <Opinions opinions={[
+                    {
+                        imgLoc: "",
+                        userName: "Michał",
+                        description: "Well done",
+                        rating: 5,
+                        date: new Date(),
+                        project: {
+                            name: "Portfolio site"
+                        }
+                    }
+                ]}/>
                 <div id="portfolio" className="card border-teal-100">
                     <h2 className="text-2xl text-teal-100 font-bold">Portfolio</h2>
                     <p className="desc">I'm proud to present my projects</p>
