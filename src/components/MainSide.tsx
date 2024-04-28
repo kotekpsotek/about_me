@@ -331,7 +331,37 @@ export default function Main() {
                 } */}
                 <Opinions opinions={[
                     {
-                        imgLoc: "",
+                        imgLoc: "/eleni.aganos.jpg",
+                        userName: "Michał",
+                        description: "Well done",
+                        rating: 5,
+                        date: new Date(),
+                        project: {
+                            name: "Portfolio site"
+                        }
+                    },
+                    {
+                        imgLoc: "/eleni.aganos.jpg",
+                        userName: "Michał",
+                        description: "Well doneWell doneWell doneWell doneWell doneWell doneWell doneWell doneWell doneWell doneWell doneWell doneWell doneWell doneWell doneWell doneWell doneWell doneWell doneWell doneWell doneWell doneWell doneWell doneWell doneWell doneWell doneWell doneWell done",
+                        rating: 5,
+                        date: new Date(),
+                        project: {
+                            name: "Portfolio site"
+                        }
+                    },
+                    {
+                        imgLoc: "/eleni.aganos.jpg",
+                        userName: "Michał",
+                        description: "Well done",
+                        rating: 5,
+                        date: new Date(),
+                        project: {
+                            name: "Portfolio site"
+                        }
+                    },
+                    {
+                        imgLoc: "/eleni.aganos.jpg",
                         userName: "Michał",
                         description: "Well done",
                         rating: 5,
