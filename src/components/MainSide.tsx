@@ -372,8 +372,8 @@ export default function Main() {
                     }
                 ]}/>
                 <div id="portfolio" className="card border-teal-100">
-                    <h2 className="text-2xl text-teal-100 font-bold">Portfolio</h2>
-                    <p className="desc">I'm proud to present my projects</p>
+                    <h2 className="text-2xl text-teal-100 font-bold">Open-Source Portfolio</h2>
+                    <p className="desc">I'm proud to present my Open-Source projects</p>
                     <div className={`items ${isCollapsedPortfolio ? "collapsed": ""}`}>
                         {spawnPortfolioItems}
                     </div>

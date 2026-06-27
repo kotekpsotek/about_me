@@ -29,6 +29,8 @@ export function Opinions(args: Props) {
                         <a href="#" className="text-md font-medium text-gray-200 underline hover:no-underline dark:text-white">
                             {args.opinions.length} reviews
                         </a>
+                        <span className="mx-1.5 h-1 w-1 rounded-full bg-gray-100 dark:bg-gray-400" />
+                        <p className="text-sky-200">318 opinions</p>
                     </Rating>
                 </div>
             </div>
@@ -70,7 +72,7 @@ export function Opinions(args: Props) {
                     })
                 }
             </div>
-            <button className="mt-7 bg-white text-black font-bold text-center w-full p-2 rounded capitalize">Add your opinion</button>
+            <button className="mt-7 bg-white text-black font-bold text-center w-full p-2 rounded capitalize" onClick={_ => window.location.assign("/new-opinion")}>Add your opinion</button>
         </div>
     )
 }
